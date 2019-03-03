@@ -1,0 +1,50 @@
+{
+    "name": "react-micro-frontends-bridge",
+    "version": "0.0.1-Alpha",
+    "description": "",
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "scripts": {
+        "dist": "antd-tools run dist",
+        "compile": "antd-tools run compile",
+        "clean": "antd-tools run clean",
+        "start": "antd-tools run start",
+        "site": "antd-tools run site",
+        "deploy": "antd-tools run update-self && antd-tools run deploy",
+        "just-deploy": "antd-tools run just-deploy",
+        "pub": "antd-tools run update-self && antd-tools run pub",
+        "prepublish": "antd-tools run guard"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/swufexlm/react-micro-frontends.git"
+    },
+    "keywords": [
+        "react",
+        "micro",
+        "micro-frontends"
+    ],
+    "author": "lanmi.xin@gmail.com",
+    "files": [
+        "dist",
+        "lib",
+        "es"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/swufexlm/react-micro-frontends/issues"
+    },
+    "homepage": "https://github.com/swufexlm/react-micro-frontends#readme",
+    "dependencies": {},
+    "devDependencies": {
+        "@types/react": "^16.8.6",
+        "@types/react-dom": "^16.8.2",
+        "@types/webpack": "^4.4.25",
+        "@types/webpack-env": "^1.13.8",
+        "antd-tools": "^6.5.0",
+        "react": "^16.8.3",
+        "react-dom": "^16.8.3",
+        "typescript": "^3.3.3333",
+        "webpack-visualizer-plugin": "^0.1.11"
+    }
+}
