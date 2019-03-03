@@ -3,3 +3,5 @@ es
 lib
 dist
 components/**/*.js
+package-lock.json
+analysis
