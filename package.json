@@ -1,7 +1,7 @@
 {
     "name": "react-micro-frontends-bridge",
     "version": "0.0.1-Alpha",
-    "description": "",
+    "description": "A simple react-micro-frontends implement",
     "main": "lib/index.js",
     "module": "es/index.js",
     "scripts": {
@@ -22,7 +22,8 @@
     "keywords": [
         "react",
         "micro",
-        "micro-frontends"
+        "micro-frontends",
+        "single-spa"
     ],
     "author": "lanmi.xin@gmail.com",
     "files": [

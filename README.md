@@ -44,6 +44,7 @@ export default class APP extends React.Component<any, APPState> {
     }
 
     getMicroResources = async () => {
+        // get all micro-application's script.
         return await new Promise<MicroComponents>(resolve => {
             window.setTimeout(() => {
                 resolve({
@@ -60,7 +61,7 @@ export default class APP extends React.Component<any, APPState> {
                 getMicroResources={this.getMicroResources}
                 commonModules={[
                     {
-                        name: 'react',
+                        name: 'react', // register react as a common module
                         context: require.context(
                             'react',
                             true,
@@ -68,7 +69,7 @@ export default class APP extends React.Component<any, APPState> {
                         ),
                     },
                     {
-                        name: 'react-dom',
+                        name: 'react-dom', // register react-dom as a common module, and so on...
                         context: require.context(
                             'react-dom',
                             true,
@@ -98,6 +99,7 @@ export default class APP extends React.Component<any, APPState> {
                             border: '1px solid #ddd',
                         }}
                     >
+                        // use MFBridgeConsumer to render micro-application
                         <MFBridgeConsumer name={this.state.app} />
                     </div>
                 </div>
@@ -117,26 +119,51 @@ Application1:
 import * as React from 'react';
 import { register } from 'react-micro-frontends-bridge';
 
+/**
+ * An independent application, maybe a component or a complicated SPA
+ */
 class Application1 extends React.Component {
     render() {
         return <div>Application 1</div>;
     }
 }
 
+// register this application to react-micro-frontends-bridge
 register('Application1', <Application1 />);
 ```
 
-Application1:
+Application2:
 
 ```tsx
 import * as React from 'react';
 import { register } from 'react-micro-frontends-bridge';
 
+/**
+ * An independent application, maybe a component or a complicated SPA
+ */
 class Application2 extends React.Component {
     render() {
         return <div>Application 2</div>;
     }
 }
 
+// register this application to react-micro-frontends-bridge
 register('Application2', <Application2 />);
+```
+
+### Webpack
+
+In your webpack's production config, you can exclude the common module like react, react-dom...
+
+```js
+externals: [
+    function(context, request, callback) {
+        const libs = ['react', 'react-dom'];
+        if (libs.indexOf(request.split('/', 1)[0]) !== -1) {
+            callback(null, `var window.MicroResource.require('${request}')`);
+        } else {
+            callback();
+        }
+    },
+];
 ```
