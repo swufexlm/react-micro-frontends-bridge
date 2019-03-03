@@ -1,6 +1,6 @@
 {
     "name": "react-micro-frontends-bridge",
-    "version": "0.0.1-Alpha",
+    "version": "0.0.3-beta",
     "description": "A simple react-micro-frontends implement",
     "main": "lib/index.js",
     "module": "es/index.js",
@@ -36,12 +36,14 @@
         "url": "https://github.com/swufexlm/react-micro-frontends/issues"
     },
     "homepage": "https://github.com/swufexlm/react-micro-frontends#readme",
-    "dependencies": {},
+    "dependencies": {
+        "@babel/runtime": "^7.3.4",
+        "@types/webpack-env": "^1.13.8"
+    },
     "devDependencies": {
         "@types/react": "^16.8.6",
         "@types/react-dom": "^16.8.2",
         "@types/webpack": "^4.4.25",
-        "@types/webpack-env": "^1.13.8",
         "antd-tools": "^6.5.0",
         "react": "^16.8.3",
         "react-dom": "^16.8.3",
